@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+    install:
+        runtime-versions:
+            python: 3.8
+    pre_build:
+        commands:
+            - yum install -y yum-utils
+            - yum-builddep -y python3
+            - pip install -r requirements.txt
+            - yum install wget unzip
+            - yum update -y
+            - wget https://releases.hashicorp.com/terraform/0.12.17/terraform_0.12.17_linux_amd64.zip
+            - unzip terraform_0.12.17_linux_amd64.zip -d /usr/local/bin/
+    build:
+        commands:
+            - echo "build starting stage"
+            - terraform init
+            - terraform destroy -auto-approve
+            #- terraform apply -auto-approve
+            
+    
+        
+        
