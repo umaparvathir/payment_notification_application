@@ -19,11 +19,11 @@ resource "aws_sqs_queue" "terraform_queue_deadletter" {
 }
 
 // add event source mapping between sqs and lambda
-resource "aws_lambda_event_source_mapping" "example" {
+resource "aws_lambda_event_source_mapping" "sqs_lambda_map" {
   event_source_arn = aws_sqs_queue.sqs_queue.arn
   enabled 		   = true
-  function_name    = aws_lambda_function.terraform_lambda_func.arn
-  depends_on       = [aws_sqs_queue.sqs_queue, aws_lambda_function.terraform_lambda_func]
+  function_name    = var.terraform_lambda_func_arn
+  depends_on       = [aws_sqs_queue.sqs_queue]
 }
 
 // Create policy for sqs to send/receive messages
@@ -39,7 +39,9 @@ data "aws_iam_policy_document" "sqs_policy" {
 
     actions = [
       "sqs:SendMessage",
-      "sqs:ReceiveMessage"
+      "sqs:ReceiveMessage",
+	  "sqs:DeleteMessage",
+	  "sqs:GetQueueAttributes"
     ]
     resources = [
       aws_sqs_queue.sqs_queue.arn
