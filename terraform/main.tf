@@ -13,3 +13,15 @@ terraform {
     encrypt        = true
   }
 }
+
+module "lambda" {
+	source = "./lambda"
+}
+
+module "dynamodb" {
+	source = "./dynamodb"
+}
+
+module "sqs" {
+	source = "./SQS"
+}
