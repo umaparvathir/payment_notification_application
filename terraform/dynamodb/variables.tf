@@ -3,7 +3,7 @@ variable "table_name" {
   default = "PaymentInfo"
 }
 
-variable "billing_mode" {
+variable "db_billing_mode" {
   description = "Controls the way you are charged for read and write."
   default = "PROVISIONED"
 }
@@ -34,7 +34,7 @@ variable "attribute_name" {
 }
 
 variable "tags" { 
-    type = "map" 
+    type = map
     default = { 
         projectName: "Audibene",
 		environment: "development",
