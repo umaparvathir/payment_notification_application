@@ -17,8 +17,8 @@ phases:
         commands:
             - echo "build starting stage"
             - terraform init
-            - terraform destroy -auto-approve
-            #- terraform apply -auto-approve
+            #- terraform destroy -auto-approve
+            - terraform apply -auto-approve
             
     
         
