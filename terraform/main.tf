@@ -5,11 +5,11 @@ provider "aws" {
 // specify backendto store tf state file
 terraform {
   backend "s3" {
-    bucket         = var.bucket_name
-    key            = var.key
-    region         = var.region
+    bucket         = "terraform-state-file-store1838"
+    key            = "global/s3/terraform.tfstate"
+    region         = "eu-north-1"
 
-    dynamodb_table = var.tf_dynamo_table_name
-    encrypt        = var.encrypt
+    dynamodb_table = "terraform-state-file-locks"
+    encrypt        = true
   }
 }
