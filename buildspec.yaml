@@ -15,8 +15,8 @@ phases:
             - echo "build starting stage"
             - cd terraform
             - terraform init
-            #- terraform destroy -var-file=dev_env_tf_scripts.tfvars -auto-approve
-            - terraform apply -var-file=dev_env_tf_scripts.tfvars -auto-approve
+            - terraform destroy -var-file=dev_env_tf_scripts.tfvars -auto-approve
+            #- terraform apply -var-file=dev_env_tf_scripts.tfvars -auto-approve
             
     
         
