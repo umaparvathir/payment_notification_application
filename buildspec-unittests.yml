@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+    install:
+        runtime-versions:
+            python: 3.8
+    pre_build:
+        commands:
+            - yum install -y yum-utils
+            - yum-builddep -y python3
+            - pip install -r requirements.txt
+            - mkdir /home/app
+            - cp -r ./ /home/app
+            - cd /home/app
+    build:
+        commands:
+            - python -m pytest terraform/lambda_python_code_tests/ --junitxml=./test-reports/unittest.xml --cov=terraform/lambda_python_code_tests/ --cov-report=xml:test-reports/coverage.xml
+reports:
+    pytest_reports:
+        files:
+            - unittest.xml
+        base-directory: /home/app/test-reports/
+        file-format: JUNITXML
+    coverage_reports:
+        files:
+            - coverage.xml
+        base-directory: /home/app/test-reports/
+        file-format: COBERTURAXML
+            #- terraform apply -auto-approve
+            
+    
+        
+        

@@ -10,10 +10,6 @@ phases:
             - yum-builddep -y python3
             - yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
             - yum -y install terraform
-            #- yum install wget unzip
-            #- yum update -y
-            #- wget https://releases.hashicorp.com/terraform/0.12.17/terraform_0.12.17_linux_amd64.zip
-            #- unzip terraform_0.12.17_linux_amd64.zip -d /usr/local/bin/
     build:
         commands:
             - echo "build starting stage"

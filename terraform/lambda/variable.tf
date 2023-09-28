@@ -1,24 +1,63 @@
-variable "lambda_role_name" {
+variable "lambda_dynamodb_role_name" {
   description = "Lambda function role name"
-  default = "lambda_dynamodb_push_role"
 }
 
-variable "lambda_policy_name" {
+variable "lambda_sqs_role_name" {
+  description = "Lambda function role name"
+}
+
+variable "lambda_dynamodb_policy_name" {
   description = "Lambda function policy name"
-  default = "lambda_dynamodb_push_policy"
+}
+
+variable "lambda_sqs_policy_name" {
+  description = "Lambda function policy name"
 }
 
 variable "lambda_policy_description" {
   description = "Lambda function policy name"
-  default = "AWS IAM Policy for managing aws lambda role"
 }
 
-variable "lambda_function_name" {
+variable "lambda_dynamodb_function_name" {
   description = "Lambda function name"
-  default = "lambda_dynamodb_push"
+}
+
+variable "dynamodb_lambda_handler" {
+  description = "Lambda function handler"
+}
+
+variable "lambda_runtime" {
+  description = "Lambda runtime language"
+}
+
+variable "sqs_lambda_function_name" {
+  description = "Lambda function name"
+}
+
+variable "sqs_lambda_handler" {
+  description = "Lambda function sql handler"
 }
 
 variable "file_name" {
   description = "Lambda function file name"
-  default = "lambda_python_code/lambda-dynamodb-push.zip"
+}
+
+variable "source_dir" {
+  description = "source directory for lambda code"
+}
+
+variable "output_path" {
+  description = "output path for lambda zip code"
+}
+
+variable "table_name" {
+  description = "dynamodb table name"
+}
+
+variable "sqs_url" {
+  description = "sqs url to connect from lambda"
+}
+
+variable "tags" {
+  type = map
 }
