@@ -25,6 +25,11 @@ def lambda_handler(event, context):
             return {
                'statusCode': response['ResponseMetadata']['HTTPStatusCode']
             }
+        else:
+            return {
+                'statusCode': 400,
+                'body': 'paymentId is missing in the message'
+            }
             
     except Exception as e:
       print(e)
