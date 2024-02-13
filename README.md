@@ -1,7 +1,15 @@
 # payment_notification_application
 The repository contains terraform scripts to provision AWS services for payment notification application
 
-![image](https://github.com/umaparvathir/payment_notification_application/assets/48677402/ae5d1518-1ebe-4329-93b4-ca7afe81036d)
+**Purpose of Application:**
+The Application receives payment notifications and stores them in the Database.
+
+**Technical Components:**
+This is a server-less application hosted in AWS Cloud. The following are the AWS services involved in this application.
+Amazon SNS
+Lambda functions
+Amazon SQS
+Amazon DynamoDB
 
 
 ![image](https://github.com/umaparvathir/payment_notification_application/assets/48677402/0bf9c38e-cd78-417f-b0d0-cf17add30866)
